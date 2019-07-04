@@ -14,6 +14,10 @@ function removeClassBody() {
     element.className = element.className.replace(/\bflow\b/g, "");
 }
 
+function wrap(t,e,r){for(var i=document.querySelectorAll(e),o=0;o<i.length;o++){i[o].getAttribute("src")&&(i[o].setAttribute("data-src",i[o].getAttribute("src")),i[o].removeAttribute("src")),i[o].setAttribute("class","lazyload"),i[o].setAttribute("style","position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: 0px;");var a=t+i[o].outerHTML+r;i[o].outerHTML=a}}wrap("<div class='div_youtube' style='position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:0 -20px;width:calc(100% + 40px)'>","iframe[src*='youtube.com']","</div>");
+
+$(function(){$('a[href="#searchfs"]').on("click",function(e){e.preventDefault(),$("#searchfs").addClass("open"),$('#searchfs > form > input[type="search"]').focus()}),$("#searchfs, #searchfs button.close").on("click keyup",function(e){e.target!=this&&"close"!=e.target.className&&27!=e.keyCode||$(this).removeClass("open")})});
+
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
